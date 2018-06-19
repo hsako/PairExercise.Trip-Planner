@@ -1,5 +1,6 @@
 const mapboxgl = require("mapbox-gl");
-const markerFactory = require("./marker.js")
+const {buildMarker, iconURLs} = require("./marker.js")
+
 
 mapboxgl.accessToken = "pk.eyJ1IjoiaXZ5dHNvaSIsImEiOiJjamltM3J2bGYwMDJhM3BxaDZ5ZGxybHo1In0.gpReoExkzZ3wbJszx7TMKg";
 
@@ -9,5 +10,7 @@ const map = new mapboxgl.Map({
   zoom: 12, // starting zoom
   style: "mapbox://styles/mapbox/streets-v10" // mapbox has lots of different map styles available.
 });
+
+const newLocation = buildMarker('restaurants',[-74.009, 40.705]).addTo(map);
 
 module.exports = map;
